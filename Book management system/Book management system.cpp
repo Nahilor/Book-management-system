@@ -24,8 +24,11 @@ int main()
     int choice;
     int n = 1;
     library* lib = new library[n];
+
+    // main sys loop
     while (true)
     {
+        // Displaying options for the user
         std::cout << "1 - For adding a book to the library." << std::endl;
         std::cout << "2 - To show the books." << std::endl;
         std::cout << "3 - To search for a specific book." << std::endl;
@@ -73,6 +76,7 @@ int main()
     }
 }
 
+// Adds a book and also increases the array size.
 library* addbook(library lib[], int &n)
 {
     // adding a book
@@ -114,6 +118,8 @@ library* addbook(library lib[], int &n)
     n++;
     return newlib;
 }
+
+// Searches a book by its title and returns the index of the book in the array
 int searchbook(library lib[], int n)
 {
     std::string bktitle;
@@ -121,14 +127,8 @@ int searchbook(library lib[], int n)
     std::getline(std::cin, bktitle);
     for (int i = 0; i < n; i++)
     {
-        if (lib[i].bk.title == bktitle)
-        {
-            return i;
-        }
-        else
-        {
-            return -1;
-        }
+        if (lib[i].bk.title == bktitle) { return i; }
+        else { return -1; }
     }
     return -404;
 }
